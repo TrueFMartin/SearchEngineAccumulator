@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.function.Function;
 import java.util.function.ToDoubleFunction;
 import java.util.function.ToIntFunction;
@@ -7,9 +8,9 @@ import java.util.function.ToLongFunction;
 
 public class CustomCompare implements Comparator<Integer> {
 
-    private static ArrayList<CompareType> list;
+    private static HashMap<Integer, Integer> list;
 
-    CustomCompare(ArrayList<CompareType> list){
+    CustomCompare(HashMap<Integer, Integer> list){
         this.list = list;
     }
     @Override
