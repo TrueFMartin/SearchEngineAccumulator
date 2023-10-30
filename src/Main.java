@@ -9,17 +9,21 @@ import static java.lang.System.Logger.Level.DEBUG;
 public class Main {
 
     public static void main(String[] args) {
+        if (args.length == 1) {
+            new WithArray().run();
+            return;
+        }
 //        Logger LOGGER = Logger.getGlobal();
-        Random rand = new Random(5);
+        Random rand = new Random(12);
 //        int numLoops = 5 + rand.nextInt(1000000);
-        int numLoops = 10;
+        int numLoops = 20;
         int mod = numLoops / 100;
         long numComplete = 0;
 //        System.out.println("Num Loops: " + numLoops);
 //        String bars = "-".repeat(100);
 //        System.out.println("|" + bars + "|");
 //        System.out.print("|");
-        int SIZE_FACTOR = 1000;
+        int SIZE_FACTOR = 50_000;
         long timeSum = 0;
         for (int c = 0; c < numLoops; c++) {
 //            if (c % mod == 0) {
@@ -45,7 +49,7 @@ public class Main {
 //            System.out.println("Starting");
             var startTime = System.nanoTime();
             // Insert all postings into docMap / queue
-            for (int i = 0; i < postings.size(); i++) {
+             for (int i = 0; i < postings.size(); i++) {
                 CompareType posting = postings.get(i);
 
                 int previousWeight = docMap.getOrDefault(posting.docID, -1);
